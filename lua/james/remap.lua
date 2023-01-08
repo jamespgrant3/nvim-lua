@@ -55,3 +55,6 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
 vim.keymap.set("n", "-", "<cmd>silent :tabprev<CR>")
 vim.keymap.set("n", "=", "<cmd>silent :tabnext<CR>")
 vim.keymap.set("n", "<leader>nt", "<cmd>silent :tabnew<CR>")
+
+-- toggle line numbering
+vim.keymap.set("n", "<leader>rn", "<cmd>silentn:set rnu!<CR>")
