@@ -1,6 +1,9 @@
 -- fat cursor in insert mode
 vim.opt.guicursor = ""
 
+-- share clipboard across vim and machine
+vim.opt.clipboard = "unnamed"
+
 -- set line number, and have them relative
 vim.opt.nu = true
 vim.opt.relativenumber = true
