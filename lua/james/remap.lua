@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>q", "<cmd>silent :q<CR>")
-vim.keymap.set("n", "<leader>w", "<cmd>silent :w<CR>")
+vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 -- better split window navigation
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
