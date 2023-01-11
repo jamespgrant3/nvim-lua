@@ -7,16 +7,20 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    { run = ':TSUpdate' }
+  }
   use 'Mofiqul/dracula.nvim'
   use 'nvim-treesitter/playground'
   use 'ThePrimeagen/harpoon'
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
-  use("folke/zen-mode.nvim")
+  use "folke/zen-mode.nvim"
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
