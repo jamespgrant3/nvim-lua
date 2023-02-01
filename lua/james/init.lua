@@ -1,5 +1,6 @@
 require("james.remap")
 require("james.set")
+require("james.packer")
 
 local augroup = vim.api.nvim_create_augroup
 local JamesGroup = augroup('JamesGroup', {})
