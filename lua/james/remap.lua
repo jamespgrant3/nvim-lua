@@ -56,3 +56,6 @@ vim.keymap.set("n", "<leader>nt", "<cmd>silent :tabnew<CR>")
 
 -- toggle line numbering
 vim.keymap.set("n", "<leader>ln", "<cmd>silent :set rnu!<CR>", { desc = "toggle relative line numbering" })
+
+-- prettier
+vim.keymap.set("n", "<leader>a", "<cmd>silent %!prettier --stdin-filepath %<CR>")
