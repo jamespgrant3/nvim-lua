@@ -1,8 +1,8 @@
 -- view all keybindings with :map
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>nr", vim.cmd.Lexplore, { desc = "open [n]et[r]w vertical" })
-vim.keymap.set("n", "<leader>nrh", vim.cmd.Hex, { desc = "open [n]et[r]w [h]orizontal" })
+vim.keymap.set("n", "<leader>nr", vim.cmd.Explore, { desc = "open [n]et[r]w vertical" })
+--vim.keymap.set("n", "<leader>nrh", vim.cmd.Hex, { desc = "open [n]et[r]w [h]orizontal" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move line up" })
@@ -59,3 +59,4 @@ vim.keymap.set("n", "<leader>ln", "<cmd>silent :set rnu!<CR>", { desc = "toggle 
 
 -- prettier
 vim.keymap.set("n", "<leader>a", "<cmd>silent %!prettier --stdin-filepath %<CR>")
+vim.keymap.set("n", "<leader>ab", "<cmd>silent %!prettier components pages posts styles --write<CR>")
