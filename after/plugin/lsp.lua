@@ -46,7 +46,12 @@ require('lspconfig')['eslint'].setup{
   flags = lsp_flags,
 }
 
-require('lspconfig')['terraform_lsp'].setup{
+require('lspconfig')['terraformls'].setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+require('lspconfig')['pylsp'].setup{
   on_attach = on_attach,
   flags = lsp_flags,
 }
