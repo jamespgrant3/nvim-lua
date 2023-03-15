@@ -1,8 +1,11 @@
 -- view all keybindings with :map
-
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>nr", vim.cmd.Explore, { desc = "open [n]et[r]w vertical" })
---vim.keymap.set("n", "<leader>nrh", vim.cmd.Hex, { desc = "open [n]et[r]w [h]orizontal" })
+
+-- nvim tree bindings
+vim.keymap.set("n", "<leader>tt", "<cmd>silent :NvimTreeToggle<cr>", { desc = "open or close the tree" })
+vim.keymap.set("n", "<leader>tf", "<cmd>silent :NvimTreeFocus<cr>", { desc = "open if closed, and focus" })
+vim.keymap.set("n", "<leader>ti", "<cmd>silent :NvimTreeFindFile<cr>", { desc = "move cursor to tree for current buffer" })
+vim.keymap.set("n", "<leader>tc", "<cmd>silent :NvimTreeCollapse<cr>", { desc = "collapse tree recursively" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move line up" })
