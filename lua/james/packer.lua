@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
     { run = ':TSUpdate' }
   }
   use 'Mofiqul/dracula.nvim'
-  use 'nvim-treesitter/playground'
+  --use 'nvim-treesitter/playground'
   use 'ThePrimeagen/harpoon'
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
