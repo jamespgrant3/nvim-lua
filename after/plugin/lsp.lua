@@ -61,6 +61,11 @@ require('lspconfig')['gopls'].setup{
   flags = lsp_flags,
 }
 
+require('lspconfig')['ruby_ls'].setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 lsp.configure('lua-language-server', {
   settings = {
     Lua = {
