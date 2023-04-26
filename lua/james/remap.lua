@@ -63,3 +63,10 @@ vim.keymap.set("n", "<leader>ln", "<cmd>silent :set rnu!<CR>", { desc = "toggle 
 -- prettier
 vim.keymap.set("n", "<leader>a", "<cmd>silent %!prettier --stdin-filepath %<CR>")
 vim.keymap.set("n", "<leader>ab", "<cmd>silent %!prettier components pages posts styles --write<CR>")
+
+-- git worktree
+-- <Enter> - switches to that worktree
+-- <c-d> - deletes that worktree
+-- <c-f> - toggles forcing of the next deletion
+vim.keymap.set("n", "<leader>wt", "<cmd>:lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
+vim.keymap.set("n", "<leader>awt", "<cmd>:lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")

@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
   }
   use 'Mofiqul/dracula.nvim'
   --use 'nvim-treesitter/playground'
+  use 'ThePrimeagen/git-worktree.nvim'
   use 'ThePrimeagen/harpoon'
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
