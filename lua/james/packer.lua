@@ -54,4 +54,5 @@ return require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'},
     }
   }
+  use 'vuciv/vim-bujo'
 end)
