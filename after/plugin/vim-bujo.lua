@@ -8,4 +8,4 @@ vim.keymap.set("i", "<C-a>", "<Plug>BujoAddinsert", { desc = "add an item in ins
 vim.keymap.set("n", "<C-x>", "<Plug>BujoChecknormal", { desc = "remove an item in normal mode" })
 vim.keymap.set("i", "<C-x>", "<Plug>BujoCheckinsert", { desc = "remove an item in insert mode" })
 
-vim.g.bujo_window_width = 40
+vim.g['bujo#window_width'] = 100
