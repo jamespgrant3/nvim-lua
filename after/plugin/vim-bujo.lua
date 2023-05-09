@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>tdl", "<cmd>silent :Todo<cr>", { desc = "open or close the todo list" })
+vim.keymap.set("n", "<leader>td", "<cmd>silent :Todo<cr>", { desc = "open or close the todo list" })
 
 -- add
 vim.keymap.set("n", "<C-a>", "<Plug>BujoAddnormal", { desc = "add an item in normal mode" })
