@@ -77,3 +77,6 @@ vim.keymap.set("n", "<leader>pu", "<cmd>:PackerUpdate<CR>")
 
 -- update mason (lsp)
 vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<CR>")
+
+-- update brew
+vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>")
