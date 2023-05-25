@@ -190,6 +190,11 @@ _G.packer_plugins = {
     path = "/Users/james/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-bujo"] = {
+    loaded = true,
+    path = "/Users/james/.local/share/nvim/site/pack/packer/start/vim-bujo",
+    url = "https://github.com/vuciv/vim-bujo"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/james/.local/share/nvim/site/pack/packer/start/vim-fugitive",

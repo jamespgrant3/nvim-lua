@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     { run = ':TSUpdate' }
   }
   use 'Mofiqul/dracula.nvim'
+  use 'nvim-tree/nvim-web-devicons'
   --use 'nvim-treesitter/playground'
   use {
     'nvim-lualine/lualine.nvim',
