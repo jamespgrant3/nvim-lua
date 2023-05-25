@@ -71,7 +71,6 @@ vim.keymap.set("n", "<leader>ab", "<cmd>silent %!prettier components pages posts
 vim.keymap.set("n", "<leader>wt", "<cmd>:lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
 vim.keymap.set("n", "<leader>awt", "<cmd>:lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")
 
-
 -- update packer
 vim.keymap.set("n", "<leader>pu", "<cmd>:PackerUpdate<CR>")
 
