@@ -9,8 +9,15 @@ require("nvim-tree").setup{
     float = {
       enable = true,
       open_win_config = {
-        width = 150,
-        height = 60
+        width = 90,
+        height = 40
+      }
+    }
+  },
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = false
       }
     }
   }
