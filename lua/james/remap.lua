@@ -79,3 +79,7 @@ vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<CR>")
 
 -- update brew
 vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>")
+
+-- new buffer
+vim.keymap.set("n", "<leader>nv", "<cmd>silent :vnew<cr>", { desc = "new vertical buffer" })
+vim.keymap.set("n", "<leader>nh", "<cmd>silent :new<cr>", { desc = "new vertical buffer" })
