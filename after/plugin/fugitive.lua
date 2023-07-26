@@ -6,6 +6,7 @@ vim.keymap.set("n", "<leader>gitl", function() vim.cmd.Git { args = { 'log' }} e
 
 -- push to remote without setting upstream
 --vim.keymap.set("n", "<leader>gp", ":Git -c push.default=current push --no-verify<CR>");
-vim.keymap.set("n", "<leader>gitp", function() vim.cmd.Git { args = { '-c push.default=current push --no-verify' }}  end)
+--vim.keymap.set("n", "<leader>gitp", function() vim.cmd.Git { args = { '-c push.default=current push --no-verify' }}  end)
+vim.keymap.set("n", "<leader>gitp", function() vim.cmd.Git { args = { '-c push.default=current push' }}  end)
 vim.keymap.set("n", "<leader>gitf", function() vim.cmd.Git { args = { 'fetch' }} end)
 vim.keymap.set("n", "<leader>gitr", function() vim.cmd.Git { args = { 'rebase' }} end)
