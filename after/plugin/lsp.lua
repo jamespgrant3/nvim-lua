@@ -66,7 +66,12 @@ require('lspconfig')['ruby_ls'].setup{
   flags = lsp_flags,
 }
 
-lsp.configure('lua-language-server', {
+require('lspconfig')['lua_ls'].setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+lsp.configure('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
