@@ -83,3 +83,7 @@ vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>")
 -- new buffer
 vim.keymap.set("n", "<leader>nv", "<cmd>silent :vnew<cr>", { desc = "new vertical buffer" })
 vim.keymap.set("n", "<leader>nh", "<cmd>silent :new<cr>", { desc = "new vertical buffer" })
+
+
+vim.keymap.set("n", "<leader>tr", "<cmd>silent :tabm +1<cr>", { desc = "move tab right 1 position" })
+vim.keymap.set("n", "<leader>tl", "<cmd>silent :tabm -1<cr>", { desc = "move tab left 1 position" })
