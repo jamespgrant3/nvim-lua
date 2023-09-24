@@ -71,6 +71,11 @@ require('lspconfig')['lua_ls'].setup{
   flags = lsp_flags,
 }
 
+require('lspconfig')['eslint'].setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 lsp.configure('lua_ls', {
   settings = {
     Lua = {

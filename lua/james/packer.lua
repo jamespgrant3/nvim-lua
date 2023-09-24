@@ -78,4 +78,5 @@ return require('packer').startup(function(use)
     }
   }
   use 'vuciv/vim-bujo'
+  use 'github/copilot.vim'
 end)
