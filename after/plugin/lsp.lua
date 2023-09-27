@@ -1,7 +1,7 @@
 local lsp = require('lsp-zero').preset({
   name = 'minimal',
   set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
+  --manage_nvim_cmp = true,
   suggest_lsp_servers = false,
 })
 
@@ -21,60 +21,27 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-require('lspconfig')['tsserver'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').tsserver.setup{ }
 
-require('lspconfig')['terraformls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').terraformls.setup{ }
 
-require('lspconfig')['yamlls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').yamlls.setup{ }
 
-require('lspconfig')['dockerls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').dockerls.setup{ }
 
-require('lspconfig')['eslint'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').eslint.setup{ }
 
-require('lspconfig')['terraformls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').terraformls.setup{ }
 
-require('lspconfig')['pylsp'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').pylsp.setup{ }
 
-require('lspconfig')['gopls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').gopls.setup{ }
 
-require('lspconfig')['ruby_ls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').ruby_ls.setup{ }
 
-require('lspconfig')['lua_ls'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').lua_ls.setup{ }
 
-require('lspconfig')['eslint'].setup{
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+require('lspconfig').eslint.setup{ }
 
 lsp.configure('lua_ls', {
   settings = {
@@ -86,17 +53,17 @@ lsp.configure('lua_ls', {
   }
 })
 
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
-})
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+--local cmp = require('cmp')
+--local cmp_select = {behavior = cmp.SelectBehavior.Select}
+--local cmp_mappings = lsp.defaults.cmp_mappings({
+--	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+--	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+--	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+--	["<C-Space>"] = cmp.mapping.complete(),
+--})
+--
+--cmp_mappings['<Tab>'] = nil
+--cmp_mappings['<S-Tab>'] = nil
 
 lsp.set_preferences({
 	suggest_lsp_servers = false,
@@ -110,7 +77,7 @@ lsp.set_preferences({
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+lsp.on_attach(function(client, bufnr)
   local opts = { noremap=true, silent=true, buffer=bufnr }
 
   vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
@@ -129,6 +96,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, opts)
   --vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
   --vim.keymap.set('n', '<leader>di', function() vim.lsp.buf.code_action('source.organizeImports.ts'), opts)
-end
+end)
 
 lsp.setup()
