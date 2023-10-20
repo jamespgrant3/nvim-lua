@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     config = function()
       require("telescope").load_extension("live_grep_args")
     end,
-    tag = '0.1.0',
+    --tag = '0.1.4',
   }
   use {
     'nvim-treesitter/nvim-treesitter',
