@@ -28,7 +28,6 @@ return require('packer').startup(function(use)
     config = function()
       require("telescope").load_extension("live_grep_args")
     end,
-    --tag = '0.1.4',
   }
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -36,7 +35,6 @@ return require('packer').startup(function(use)
   }
   use 'Mofiqul/dracula.nvim'
   use 'nvim-tree/nvim-web-devicons'
-  --use 'nvim-treesitter/playground'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -73,10 +71,10 @@ return require('packer').startup(function(use)
 
       -- Snippets
       {'L3MON4D3/LuaSnip'},
+
       -- Snippet Collection (Optional)
       {'rafamadriz/friendly-snippets'},
     }
   }
   use 'vuciv/vim-bujo'
-  use 'github/copilot.vim'
 end)
