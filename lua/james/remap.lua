@@ -2,10 +2,10 @@
 vim.g.mapleader = " "
 
 -- nvim tree bindings
-vim.keymap.set("n", "<leader>tt", "<cmd>silent :NvimTreeToggle<cr>", { desc = "open or close the tree" })
-vim.keymap.set("n", "<leader>tf", "<cmd>silent :NvimTreeFocus<cr>", { desc = "open if closed, and focus" })
-vim.keymap.set("n", "<leader>ti", "<cmd>silent :NvimTreeFindFile<cr>", { desc = "move cursor to tree for current buffer" })
-vim.keymap.set("n", "<leader>tc", "<cmd>silent :NvimTreeCollapse<cr>", { desc = "collapse tree recursively" })
+vim.keymap.set("n", "<leader>tt", "<cmd>:NvimTreeToggle<cr>", { desc = "open or close the tree", silent = true })
+vim.keymap.set("n", "<leader>tf", "<cmd>:NvimTreeFocus<cr>", { desc = "open if closed, and focus", silent = true })
+vim.keymap.set("n", "<leader>ti", "<cmd>:NvimTreeFindFile<cr>", { desc = "move cursor to tree for current buffer", silent = true })
+vim.keymap.set("n", "<leader>tc", "<cmd>:NvimTreeCollapse<cr>", { desc = "collapse tree recursively", silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move line up" })
@@ -40,7 +40,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "string replace" })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>q", "<cmd>silent :q<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>:q<CR>", { silent = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 -- better split window navigation
@@ -49,20 +49,27 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
 
+-- new window
+vim.keymap.set("n", "<leader>hw", "<C-w><C-s>", { desc = "split window horizontal", silent = true })
+vim.keymap.set("n", "<leader>vw", "<C-w><C-v>", { desc = "split window vertical", silent = true })
+
 -- move full screen, good for :help
 vim.keymap.set("n", "<C-f>", "<C-w><C-o>")
 
 -- better tab navigation
-vim.keymap.set("n", "-", "<cmd>silent :tabprev<CR>")
-vim.keymap.set("n", "=", "<cmd>silent :tabnext<CR>")
-vim.keymap.set("n", "<leader>nt", "<cmd>silent :tabnew<CR>")
+vim.keymap.set("n", "-", "<cmd>:tabprev<CR>", { silent = true })
+vim.keymap.set("n", "=", "<cmd>:tabnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ta", "<cmd>:tabnew<CR>", { desc = "new tab after current", silent = true })
+vim.keymap.set("n", "<leader>tb", "<cmd>:-tabnew<CR>", { desc = "new tab before current", silent = true })
+--vim.keymap.set("n", "<leader>tl", "<cmd>:$tabnew<CR>", { desc = "new tab after the last", silent = true })
+vim.keymap.set("n", "<leader>tf", "<cmd>:0tabnew<CR>", { desc = "new tab before the first", silent = true })
 
 -- toggle line numbering
-vim.keymap.set("n", "<leader>ln", "<cmd>silent :set rnu!<CR>", { desc = "toggle relative line numbering" })
+vim.keymap.set("n", "<leader>ln", "<cmd>:set rnu!<CR>", { desc = "toggle relative line numbering", silent = true  })
 
 -- prettier
-vim.keymap.set("n", "<leader>a", "<cmd>silent %!prettier --stdin-filepath %<CR>")
-vim.keymap.set("n", "<leader>ab", "<cmd>silent %!prettier components pages posts styles --write<CR>")
+vim.keymap.set("n", "<leader>a", "<cmd>%!prettier --stdin-filepath %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ab", "<cmd>%!prettier components pages posts styles --write<CR>", { silent = true })
 
 -- git worktree
 -- <Enter> - switches to that worktree
@@ -81,9 +88,9 @@ vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<CR>")
 vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>")
 
 -- new buffer
-vim.keymap.set("n", "<leader>nv", "<cmd>silent :vnew<cr>", { desc = "new vertical buffer" })
-vim.keymap.set("n", "<leader>nh", "<cmd>silent :new<cr>", { desc = "new vertical buffer" })
+vim.keymap.set("n", "<leader>nv", "<cmd>:vnew<cr>", { desc = "new vertical buffer", silent = true })
+vim.keymap.set("n", "<leader>nh", "<cmd>:new<cr>", { desc = "new vertical buffer", silent = true })
 
 
-vim.keymap.set("n", "<leader>tr", "<cmd>silent :tabm +1<cr>", { desc = "move tab right 1 position" })
-vim.keymap.set("n", "<leader>tl", "<cmd>silent :tabm -1<cr>", { desc = "move tab left 1 position" })
+vim.keymap.set("n", "<leader>tr", "<cmd>:tabm +1<cr>", { desc = "move tab right 1 position", silent = true })
+vim.keymap.set("n", "<leader>tl", "<cmd>:tabm -1<cr>", { desc = "move tab left 1 position", silent = true })
