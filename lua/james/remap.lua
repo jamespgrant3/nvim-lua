@@ -11,8 +11,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move line up" })
 
 vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "page down keeping current line in the center of the screen" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "page down keeping current line in the center of the screen" })
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
@@ -81,13 +81,13 @@ vim.keymap.set("n", "<leader>wt", "<cmd>:lua require('telescope').extensions.git
 vim.keymap.set("n", "<leader>awt", "<cmd>:lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")
 
 -- update packer
-vim.keymap.set("n", "<leader>pu", "<cmd>:PackerUpdate<CR>")
+vim.keymap.set("n", "<leader>pu", "<cmd>:PackerUpdate<CR>", { desc = "run a packer update" })
 
 -- update mason (lsp)
-vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<CR>")
+vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<CR>", { desc = "run a mason update" })
 
 -- update brew
-vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>")
+vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>", { desc = "run a brew upgrade" })
 
 -- new buffer
 vim.keymap.set("n", "<leader>nv", "<cmd>:vnew<cr>", { desc = "new vertical buffer", silent = true })
