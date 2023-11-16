@@ -57,12 +57,14 @@ vim.keymap.set("n", "<leader>vw", "<C-w><C-v>", { desc = "split window vertical"
 vim.keymap.set("n", "<C-f>", "<C-w><C-o>")
 
 -- better tab navigation
-vim.keymap.set("n", "-", "<cmd>:tabprev<CR>", { silent = true })
-vim.keymap.set("n", "=", "<cmd>:tabnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tp", "<cmd>:tabprev<CR>", { desc = "move to the previous tab",  silent = true })
+vim.keymap.set("n", "<leader>tn", "<cmd>:tabnext<CR>", { desc = "move to the next tab", silent = true })
 vim.keymap.set("n", "<leader>ta", "<cmd>:tabnew<CR>", { desc = "new tab after current", silent = true })
 vim.keymap.set("n", "<leader>tb", "<cmd>:-tabnew<CR>", { desc = "new tab before current", silent = true })
---vim.keymap.set("n", "<leader>tl", "<cmd>:$tabnew<CR>", { desc = "new tab after the last", silent = true })
-vim.keymap.set("n", "<leader>tf", "<cmd>:0tabnew<CR>", { desc = "new tab before the first", silent = true })
+vim.keymap.set("n", "<leader>t1", "<cmd>:0tabnew<CR>", { desc = "new tab before the first", silent = true })
+vim.keymap.set("n", "<leader>t0", "<cmd>:$tabnew<CR>", { desc = "new tab after the last", silent = true })
+vim.keymap.set("n", "<leader>tr", "<cmd>:tabm +1<cr>", { desc = "move tab right 1 position", silent = true })
+vim.keymap.set("n", "<leader>tl", "<cmd>:tabm -1<cr>", { desc = "move tab left 1 position", silent = true })
 
 -- toggle line numbering
 vim.keymap.set("n", "<leader>ln", "<cmd>:set rnu!<CR>", { desc = "toggle relative line numbering", silent = true  })
@@ -90,7 +92,3 @@ vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>")
 -- new buffer
 vim.keymap.set("n", "<leader>nv", "<cmd>:vnew<cr>", { desc = "new vertical buffer", silent = true })
 vim.keymap.set("n", "<leader>nh", "<cmd>:new<cr>", { desc = "new vertical buffer", silent = true })
-
-
-vim.keymap.set("n", "<leader>tr", "<cmd>:tabm +1<cr>", { desc = "move tab right 1 position", silent = true })
-vim.keymap.set("n", "<leader>tl", "<cmd>:tabm -1<cr>", { desc = "move tab left 1 position", silent = true })
