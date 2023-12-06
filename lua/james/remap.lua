@@ -90,5 +90,5 @@ vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<CR>", { desc = "run a mason updat
 vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<CR>", { desc = "run a brew upgrade" })
 
 -- new buffer
-vim.keymap.set("n", "<leader>nv", "<cmd>:vnew<cr>", { desc = "new vertical buffer", silent = true })
-vim.keymap.set("n", "<leader>nh", "<cmd>:new<cr>", { desc = "new vertical buffer", silent = true })
+vim.keymap.set("n", "<leader>bv", "<cmd>:vnew<cr>", { desc = "new vertical buffer", silent = true })
+vim.keymap.set("n", "<leader>bh", "<cmd>:new<cr>", { desc = "new vertical buffer", silent = true })
