@@ -58,8 +58,8 @@ vim.keymap.set("n", "<leader>tp", "<cmd>:tabprev<cr>", { desc = "move to the pre
 vim.keymap.set("n", "<leader>tn", "<cmd>:tabnext<cr>", { desc = "move to the next tab", silent = true })
 vim.keymap.set("n", "<leader>ta", "<cmd>:tabnew<cr>", { desc = "new tab after current", silent = true })
 vim.keymap.set("n", "<leader>tb", "<cmd>:-tabnew<cr>", { desc = "new tab before current", silent = true })
-vim.keymap.set("n", "<leader>t1", "<cmd>:0tabnew<cr>", { desc = "new tab before the first", silent = true })
-vim.keymap.set("n", "<leader>t0", "<cmd>:$tabnew<cr>", { desc = "new tab after the last", silent = true })
+vim.keymap.set("n", "<leader>t0", "<cmd>:0tabnew<cr>", { desc = "new tab before the first", silent = true })
+vim.keymap.set("n", "<leader>t$", "<cmd>:$tabnew<cr>", { desc = "new tab after the last", silent = true })
 vim.keymap.set("n", "<leader>tr", "<cmd>:tabm +1<cr>", { desc = "move tab right 1 position", silent = true })
 vim.keymap.set("n", "<leader>tl", "<cmd>:tabm -1<cr>", { desc = "move tab left 1 position", silent = true })
 
