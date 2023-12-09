@@ -25,8 +25,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "q:", "<nop>", { desc = "avoid that weird screen", silent = true })
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<C-f>", "<cmd><silent>!tmux neww tmux-sessionizer<cr>")
-
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<cr>zz",
   { desc = "display the [count] next error in the list that includes a file name" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<cr>zz",

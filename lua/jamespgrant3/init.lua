@@ -1,6 +1,6 @@
-require("james.remap")
-require("james.set")
-require("james.packer")
+require("jamespgrant3.remap")
+require("jamespgrant3.set")
+require("jamespgrant3.packer")
 
 local augroup = vim.api.nvim_create_augroup
 local JamesGroup = augroup('JamesGroup', {})
