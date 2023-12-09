@@ -1,16 +1,16 @@
---require("colors")
+local zen = require("zen-mode")
 
-require("zen-mode").setup {
-    window = {
-        width = 90,
-        options = {
-            number = true,
-            relativenumber = true,
-        }
-    },
+zen.setup {
+  window = {
+    width = 120,
+    options = {
+      number = true,
+      relativenumber = true,
+    }
+  },
 }
 
 vim.keymap.set("n", "<leader>zz", function()
-    require("zen-mode").toggle()
-    vim.wo.wrap = false
-end)
+  zen.toggle()
+  vim.wo.wrap = false
+end, { desc = "open zenmode" })
