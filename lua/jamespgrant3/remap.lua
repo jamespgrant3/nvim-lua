@@ -69,7 +69,7 @@ vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<cr>", { desc = "brew upgr
 -- buffer
 vim.keymap.set("n", "<leader>bv", "<cmd>:vnew<cr>", { desc = "new buffer vertical ", silent = true })
 vim.keymap.set("n", "<leader>bh", "<cmd>:new<cr>", { desc = "new buffer horizontal", silent = true })
-vim.keymap.set("n", "<leader>[b", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
-vim.keymap.set("n", "<leader>]b", "<cmd>bnext<cr>", { desc = "next buffer", silent = true })
 vim.keymap.set("n", "<leader>q", "<cmd>:q<cr>", { desc = "quit buffer", silent = true })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "write buffer", silent = true })
+vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "next buffer", silent = true })
