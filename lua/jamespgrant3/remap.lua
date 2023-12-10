@@ -35,9 +35,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<cr>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "string replace" })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { desc = "make file executable", silent = true })
 
-vim.keymap.set("n", "<leader>q", "<cmd>:q<cr>", { desc = "quit buffer", silent = true })
-vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "write buffer", silent = true })
-
 -- better split window navigation
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "navigate to the window below", silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "navigate to the window above", silent = true })
@@ -51,7 +48,7 @@ vim.keymap.set("n", "<leader>vw", "<C-w><C-v>", { desc = "split window vertical"
 -- move full screen, good for :help
 vim.keymap.set("n", "<C-f>", "<C-w><C-o>")
 
--- better tab navigation
+-- tab navigation
 vim.keymap.set("n", "<leader>tp", "<cmd>:tabprev<cr>", { desc = "move to the previous tab", silent = true })
 vim.keymap.set("n", "<leader>tn", "<cmd>:tabnext<cr>", { desc = "move to the next tab", silent = true })
 vim.keymap.set("n", "<leader>ta", "<cmd>:tabnew<cr>", { desc = "new tab after current", silent = true })
@@ -64,15 +61,15 @@ vim.keymap.set("n", "<leader>tl", "<cmd>:tabm -1<cr>", { desc = "move tab left 1
 -- toggle line numbering
 vim.keymap.set("n", "<leader>ln", "<cmd>:set rnu!<cr>", { desc = "toggle relative line numbering", silent = true })
 
--- update packer
-vim.keymap.set("n", "<leader>pu", "<cmd>:PackerUpdate<cr>", { desc = "run a packer update" })
+-- updates
+vim.keymap.set("n", "<leader>pu", "<cmd>:PackerUpdate<cr>", { desc = "packer update" })
+vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<cr>", { desc = "mason update" })
+vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<cr>", { desc = "brew upgrade" })
 
--- update mason (lsp)
-vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<cr>", { desc = "run a mason update" })
-
--- update brew
-vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<cr>", { desc = "run a brew upgrade" })
-
--- new buffer
+-- buffer
 vim.keymap.set("n", "<leader>bv", "<cmd>:vnew<cr>", { desc = "new buffer vertical ", silent = true })
 vim.keymap.set("n", "<leader>bh", "<cmd>:new<cr>", { desc = "new buffer horizontal", silent = true })
+vim.keymap.set("n", "<leader>[b", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
+vim.keymap.set("n", "<leader>]b", "<cmd>bnext<cr>", { desc = "next buffer", silent = true })
+vim.keymap.set("n", "<leader>q", "<cmd>:q<cr>", { desc = "quit buffer", silent = true })
+vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "write buffer", silent = true })
