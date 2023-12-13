@@ -11,7 +11,7 @@ local ensure_packer = function()
   return false
 end
 
-local packer_bootstrap = ensure_packer()
+ensure_packer()
 
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
@@ -19,6 +19,7 @@ vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use "nvim-lua/plenary.nvim"
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -40,7 +41,11 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
   use 'ThePrimeagen/git-worktree.nvim'
-  use 'ThePrimeagen/harpoon'
+  use {
+    'ThePrimeagen/harpoon',
+    branch = "harpoon2",
+    requires = { {"nvim-lua/plenary.nvim"} }
+  }
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use {
