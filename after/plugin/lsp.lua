@@ -6,7 +6,7 @@ local lsp = require('lsp-zero').preset({
 })
 
 -- gets more details from :LspLog
--- vim.lsp.set_log_level(vim.log.levels.INFO);
+vim.lsp.set_log_level(vim.log.levels.INFO);
 
 lsp.ensure_installed({
   "eslint",
@@ -73,7 +73,7 @@ lsp.set_preferences({
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
   vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)

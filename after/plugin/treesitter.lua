@@ -1,11 +1,8 @@
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = {
-    "css",
-    "html",
     "javascript",
     "lua",
     "rust",
-    "terraform",
     "typescript",
     "vimdoc",
   },
