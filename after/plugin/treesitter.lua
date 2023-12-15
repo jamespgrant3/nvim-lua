@@ -1,22 +1,13 @@
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = {
-    "bash",
     "css",
-    "dockerfile",
-    "go",
-    "graphql",
     "html",
     "javascript",
-    "jq",
-    "json",
     "lua",
-    "markdown",
-    "regex",
-    "ruby",
-    "sql",
+    "rust",
     "terraform",
     "typescript",
-    "yaml"
+    "vimdoc",
   },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)

@@ -5,25 +5,20 @@ local lsp = require('lsp-zero').preset({
   suggest_lsp_servers = false,
 })
 
+-- gets more details from :LspLog
+-- vim.lsp.set_log_level(vim.log.levels.INFO);
+
+lsp.ensure_installed({
+  "eslint",
+  "lua_ls",
+  'rust_analyzer',
+  'tsserver',
+});
+
 local lspconfig = require('lspconfig')
 
--- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 
---local lsp_flags = {
---  -- This is the default in Nvim 0.7+
---  debounce_text_changes = 150,
---}
-
-lspconfig.tsserver.setup {}
-lspconfig.terraformls.setup {}
-lspconfig.yamlls.setup {}
-lspconfig.dockerls.setup {}
-lspconfig.eslint.setup {}
-lspconfig.terraformls.setup {}
-lspconfig.pylsp.setup {}
-lspconfig.gopls.setup {}
-lspconfig.ruby_ls.setup {}
 lspconfig.lua_ls.setup {
   settings = {
     Lua = {
@@ -34,18 +29,6 @@ lspconfig.lua_ls.setup {
     },
   },
 }
-
-lspconfig.eslint.setup {}
-
-lsp.configure('lua_ls', {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -95,7 +78,7 @@ lsp.on_attach(function(client, bufnr)
 
   vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
   vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+  vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, opts, { desc = "format file"})
   vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
   vim.keymap.set('n', '<C-s>', function() vim.lsp.buf.signature_help() end, opts)
