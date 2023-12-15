@@ -82,11 +82,11 @@ return require('packer').startup(function(use)
     }
   }
   use 'vuciv/vim-bujo'
-  use {
-    'folke/which-key.nvim',
-    config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end
-  }
+  --use {
+  --  'folke/which-key.nvim',
+  --  config = function()
+  --    vim.o.timeout = true
+  --    vim.o.timeoutlen = 300
+  --  end
+  --}
 end)
