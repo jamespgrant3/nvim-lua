@@ -41,7 +41,9 @@ cmp.setup({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil
   },
   snippet = {
     expand = function(args)
@@ -49,17 +51,6 @@ cmp.setup({
     end,
   },
 })
-
---local cmp_select = {behavior = cmp.SelectBehavior.Select}
---local cmp_mappings = lsp.defaults.cmp_mappings({
---	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
---	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
---	['<C-y>'] = cmp.mapping.confirm({ select = true }),
---	["<C-Space>"] = cmp.mapping.complete(),
---})
---
---cmp_mappings['<Tab>'] = nil
---cmp_mappings['<S-Tab>'] = nil
 
 lsp.set_preferences({
   suggest_lsp_servers = false,
