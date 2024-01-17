@@ -8,16 +8,11 @@ local lsp = require('lsp-zero').preset({
 -- gets more details from :LspLog
 vim.lsp.set_log_level(vim.log.levels.INFO);
 
-lsp.ensure_installed({
-  "eslint",
-  "lua_ls",
-  'rust_analyzer',
-  'tsserver',
-});
-
 local lspconfig = require('lspconfig')
 
-lsp.nvim_workspace()
+--lsp.nvim_workspace()
+local lua_opts = lsp.nvim_lua_ls()
+lspconfig.lua_ls.setup(lua_opts)
 
 lspconfig.lua_ls.setup {
   settings = {
