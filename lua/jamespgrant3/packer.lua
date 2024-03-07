@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
     requires = { {"nvim-lua/plenary.nvim"} }
   }
   use 'mbbill/undotree'
-  use 'tpope/vim-fugitive'
+  --use 'tpope/vim-fugitive'
   use {
     'folke/zen-mode.nvim',
     requires = { 'Mofiqul/dracula.nvim', opt = true }
@@ -82,4 +82,7 @@ return require('packer').startup(function(use)
     }
   }
   use 'vuciv/vim-bujo'
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
 end)
