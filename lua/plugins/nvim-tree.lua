@@ -33,8 +33,3 @@ return {
     vim.opt.termguicolors = true
   end
 }
-
-
-
--- empty setup using defaults
-

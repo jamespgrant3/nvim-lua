@@ -62,13 +62,13 @@ vim.keymap.set("n", "<leader>tl", "<cmd>:tabm -1<cr>", { desc = "move tab left 1
 vim.keymap.set("n", "<leader>ln", "<cmd>:set rnu!<cr>", { desc = "toggle relative line numbering", silent = true })
 
 -- updates
-vim.keymap.set("n", "<leader>pu", "<cmd>:PackerUpdate<cr>", { desc = "packer update" })
+vim.keymap.set("n", "<leader>lu", "<cmd>:Lazy<cr>", { desc = "lazy update" })
 vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<cr>", { desc = "mason update" })
 vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<cr>", { desc = "brew upgrade" })
 
 -- buffer
-vim.keymap.set("n", "<leader>bv", "<cmd>:vnew<cr>", { desc = "new buffer vertical ", silent = true })
-vim.keymap.set("n", "<leader>bh", "<cmd>:new<cr>", { desc = "new buffer horizontal", silent = true })
+vim.keymap.set("n", "<leader>bv", "<cmd>:vnew<cr><C-w>L<cr>", { desc = "new buffer vertical ", silent = true })
+vim.keymap.set("n", "<leader>bh", "<cmd>:new<cr><C-w>J<cr>", { desc = "new buffer horizontal", silent = true })
 vim.keymap.set("n", "<leader>q", "<cmd>:q<cr>", { desc = "quit buffer", silent = true })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "write buffer", silent = true })
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
