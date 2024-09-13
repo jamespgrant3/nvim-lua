@@ -1,1 +1,1 @@
-vim.api.nvim_command('colorscheme dracula')
+vim.cmd.colorscheme "catppuccin-mocha"
