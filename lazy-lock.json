@@ -1,6 +1,7 @@
 {
-  "catppuccin": { "branch": "main", "commit": "147e7cfb5b7ec05702468c332cf7e378d935abd3" },
+  "catppuccin-mocha": { "branch": "main", "commit": "147e7cfb5b7ec05702468c332cf7e378d935abd3" },
   "conform.nvim": { "branch": "master", "commit": "1a99fdc1d3aa9ccdf3021e67982a679a8c5c740c" },
+  "harpoon": { "branch": "harpoon2", "commit": "0378a6c428a0bed6a2781d459d7943843f374bce" },
   "lazy.nvim": { "branch": "main", "commit": "48b52b5cfcf8f88ed0aff8fde573a5cc20b1306d" },
   "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "25c11854aa25558ee6c03432edfa0df0217324be" },
