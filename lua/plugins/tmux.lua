@@ -10,9 +10,9 @@ return {
     vim.keymap.set("n", "<C-l>", "<cmd>lua require('tmux').move_right()<cr>", { desc = "navigate to the window to the right", silent = true })
 
     -- resize
-    vim.keymap.set("n", "<C-a>", "<cmd>lua require('tmux').resize_left()<cr>", { desc = "", silent = true })
-    vim.keymap.set("n", "<C-z>", "<cmd>lua require('tmux').resize_bottom()<cr>", { desc = "", silent = true })
-    vim.keymap.set("n", "<C-w>", "<cmd>lua require('tmux').resize_top()<cr>", { desc = "", silent = true })
-    vim.keymap.set("n", "<C-s>", "<cmd>lua require('tmux').resize_right()<cr>", { desc = "", silent = true })
+    vim.keymap.set("n", "<C-a>", "<cmd>lua require('tmux').resize_left()<cr>", { desc = "resize pane left", silent = true })
+    vim.keymap.set("n", "<C-z>", "<cmd>lua require('tmux').resize_bottom()<cr>", { desc = "resize pane bottom", silent = true })
+    vim.keymap.set("n", "<C-w>", "<cmd>lua require('tmux').resize_top()<cr>", { desc = "resize pane top", silent = true })
+    vim.keymap.set("n", "<C-s>", "<cmd>lua require('tmux').resize_right()<cr>", { desc = "resize pane right", silent = true })
   end,
 }

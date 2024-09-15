@@ -1,24 +1,24 @@
 return {
-  'nvim-telescope/telescope.nvim',
+  "nvim-telescope/telescope.nvim",
   dependencies = {
-    { 'nvim-lua/plenary.nvim' },
+    { "nvim-lua/plenary.nvim" },
     {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'make'
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make"
     }
   },
   config = function()
-    require('telescope').setup({
+    require("telescope").setup({
       defaults = {
-        layout_strategy = 'vertical',
+        layout_strategy = "vertical",
       },
     })
 
-    local builtin = require('telescope.builtin')
+    local builtin = require("telescope.builtin")
 
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-    vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
-    vim.keymap.set('n', '<leader>gr', builtin.lsp_references, {})
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+    vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+    vim.keymap.set("n", "<leader>gr", builtin.lsp_references, {})
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "toggle telescope " })
     vim.keymap.set("n", "<leader>fc", builtin.git_files, { desc = "search over changed files" })
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "search over buffers" })
