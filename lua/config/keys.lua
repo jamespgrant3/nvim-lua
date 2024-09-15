@@ -25,21 +25,13 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "q:", "<nop>", { desc = "avoid that weird screen", silent = true })
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<cr>zz",
-  { desc = "display the [count] next error in the list that includes a file name" })
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<cr>zz",
-  { desc = "display the [count] previous error in the list that includes a file name" })
+--vim.keymap.set("n", "<C-k>", "<cmd>cnext<cr>zz", { desc = "display the [count] next error in the list that includes a file name" })
+--vim.keymap.set("n", "<C-j>", "<cmd>cprev<cr>zz", { desc = "display the [count] previous error in the list that includes a file name" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<cr>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<cr>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "string replace" })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { desc = "make file executable", silent = true })
-
--- better split window navigation
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "navigate to the window below", silent = true })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "navigate to the window above", silent = true })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "navigate to the window to the right", silent = true })
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "navigate to the window to the left", silent = true })
 
 -- new window
 vim.keymap.set("n", "<leader>hw", "<C-w><C-s>", { desc = "split window horizontal", silent = true })
