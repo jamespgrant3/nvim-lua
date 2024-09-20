@@ -7,22 +7,19 @@ return {
       build = "make"
     }
   },
-  config = function()
-    require("telescope").setup({
-      defaults = {
-        layout_strategy = "vertical",
-      },
-    })
-
-    local builtin = require("telescope.builtin")
-
-    vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-    vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
-    vim.keymap.set("n", "<leader>gr", builtin.lsp_references, {})
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "toggle telescope " })
-    vim.keymap.set("n", "<leader>fc", builtin.git_files, { desc = "search over changed files" })
-    vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "search over buffers" })
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "search help" })
-    vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "search for word under the cursor" })
-  end
+  opts = {
+    defaults = {
+      layout_strategy = "vertical",
+    },
+  },
+  keys = {
+    { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
+    { "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<cr>" },
+    { "<leader>gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>" },
+    { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", desc = "toggle telescope" },
+    { "<leader>fc", "<cmd>lua require('telescope.builtin').git_files()<cr>", desc = "search over changed files" },
+    { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", desc = "search over buffers" },
+    { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", desc = "search help" },
+    { "<leader>fs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", desc = "search for word under the cursor" },
+  }
 }
