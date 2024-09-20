@@ -1,5 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  lazy = false,
   opts = {
     disable_netrw = false,
     view = {
@@ -15,11 +16,12 @@ return {
           enable = false
         }
       }
-    }
+    },
   },
   init = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
+    vim.opt.termguicolors = true
   end,
   keys = {
     { "<leader>tt", "<cmd>:NvimTreeToggle<cr>", desc = "open or close nvimtree" },
