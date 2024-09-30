@@ -5,8 +5,8 @@ return {
   dependencies = {"nvim-telescope/telescope.nvim"},
   opts = {
     home = home,
-    dailies = home .. "/templates/dailies",
-    weeklies = home .. "/templates/weeklies",
+    dailies = home .. "/dailies",
+    weeklies = home .. "/weeklies",
     templates = home .. "/templates",
     template_new_daily = home .. "/templates/new_daily.md",
     template_new_note = home .. "/templates/new.md",
