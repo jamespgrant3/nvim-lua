@@ -1,16 +1,18 @@
 local home = vim.fn.expand("~/repos/notes")
+local templates = vim.fn.expand("~/repos/nvim/master/lua/plugins/telekasten/templates")
 
 return {
   "renerocksai/telekasten.nvim",
   dependencies = {"nvim-telescope/telescope.nvim"},
+  lazy = false,
   opts = {
     home = home,
     dailies = home .. "/dailies",
     weeklies = home .. "/weeklies",
-    templates = home .. "/templates",
-    template_new_daily = home .. "/templates/new_daily.md",
-    template_new_note = home .. "/templates/new.md",
-    template_new_weekly = home .. "/templates/new_weekly.md",
+    templates = templates,
+    template_new_daily = templates .. "/new_daily.md",
+    template_new_note = templates .. "/new.md",
+    template_new_weekly = templates .. "/new_weekly.md",
   },
   keys = {
     { "<leader>nf", "<cmd>Telekasten find_notes<cr>", desc = "find notes" },
