@@ -1,4 +1,4 @@
-local home = vim.fn.expand("~/repos/notes")
+local home = vim.fn.expand("~/repos/state/notes")
 local templates = vim.fn.expand("~/repos/nvim/master/lua/plugins/telekasten/templates")
 
 return {
