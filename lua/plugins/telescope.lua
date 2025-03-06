@@ -21,5 +21,6 @@ return {
     { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>",       desc = "search over buffers" },
     { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>",     desc = "search help" },
     { "<leader>fs", "<cmd>lua require('telescope.builtin').grep_string()<cr>",   desc = "search for word under the cursor" },
+    { "<leader>gs", "<cmd>lua require('telescope.builtin').git_status()<cr>",    desc = "git status to see changed files" },
   }
 }
