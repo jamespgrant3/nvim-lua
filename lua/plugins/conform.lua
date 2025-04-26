@@ -11,8 +11,11 @@ return {
 				javascriptreact = { "prettierd" },
 				json = { "prettierd" },
 				lua = { "stylua" },
+				markdown = { "prettierd" },
+				terraform = { "terraform_fmt" },
 				typescript = { "prettierd" },
 				typescriptreact = { "prettierd" },
+				yaml = { "prettierd" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
