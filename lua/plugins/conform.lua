@@ -1,32 +1,30 @@
 return {
-  'stevearc/conform.nvim',
-  opts = {
-    formatters_by_ft = {
-      --lua = { "stylua" },
-      graphql = { "prettier" },
-      html = { "prettier" },
-      javascript = { "prettier" },
-      javascriptreact = { "prettier" },
-      json = { "prettier" },
-      typescript = { "prettier" },
-      typescriptreact = { "prettier" },
-      ["_"] = { "trim_whitespace" }
-    },
-    format_on_save = {
-      timeout_ms = 500,
-      lsp_fallback = true,
-    },
-    formatters = {
-      prettier = {
-        condition = function()
-          return vim.loop.fs_realpath(".prettierrc.js") ~= nil or vim.loop.fs_realpath(".prettierrc") ~= nil
-        end,
-      },
-      --stylua = {
-      --  condition = function(self, ctx)
-      --    print(ctx.filename)
-      --  end,
-      --}
-    },
-  }
+	"stevearc/conform.nvim",
+	config = function()
+		local conform = require("conform")
+		conform.setup({
+			formatters_by_ft = {
+				["_"] = { "trim_whitespace" },
+				graphql = { "prettierd" },
+				html = { "prettierd" },
+				javascript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				json = { "prettierd" },
+				lua = { "stylua" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
+			},
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
+			},
+		})
+
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = "*",
+			callback = function(args)
+				conform.format({ bufnr = args.buf })
+			end,
+		})
+	end,
 }
