@@ -1,3 +1,5 @@
+local colors = require("../config/colors")
+
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
@@ -31,6 +33,12 @@ return {
 				{
 					"filename",
 					path = 1,
+				},
+				{
+					function()
+						return "🤖" .. vim.fn["codeium#GetStatusString"]()
+					end,
+					color = { fg = colors.green },
 				},
 			},
 			lualine_x = { "fileformat", "filetype" },
