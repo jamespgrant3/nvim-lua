@@ -11,7 +11,12 @@ vim.keymap.set("n", "n", "nzzzv", { desc = "keeps search terms centered" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "keeps search terms centered" })
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "map to avoid losing what is in the paste register when you `vip`" })
+vim.keymap.set(
+	"x",
+	"<leader>p",
+	[["_dP]],
+	{ desc = "map to avoid losing what is in the paste register when you `vip`" }
+)
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "copies to system clipboard" })
