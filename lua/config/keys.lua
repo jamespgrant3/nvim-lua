@@ -61,11 +61,12 @@ vim.keymap.set("n", "<leader>ln", "<cmd>:set rnu!<cr>", { desc = "toggle relativ
 -- updates
 vim.keymap.set("n", "<leader>lu", "<cmd>:Lazy<cr>", { desc = "lazy update" })
 vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<cr>", { desc = "mason update" })
-vim.keymap.set("n", "<leader>bu", "<cmd>:!brew upgrade<cr>", { desc = "brew upgrade" })
 
 -- buffer
-vim.keymap.set("n", "<leader>bv", "<cmd>:vnew<cr><C-w>L<cr>", { desc = "new buffer vertical ", silent = true })
-vim.keymap.set("n", "<leader>bh", "<cmd>:new<cr><C-w>J<cr>", { desc = "new buffer horizontal", silent = true })
+vim.keymap.set("n", "<leader>bh", "<cmd>:leftabove vsplit<cr>", { desc = "split buffer left", silent = true })
+vim.keymap.set("n", "<leader>bl", "<cmd>:rightbelow vsplit<cr>", { desc = "split buffer right", silent = true })
+vim.keymap.set("n", "<leader>bk", "<cmd>:leftabove split<cr>", { desc = "split buffer above", silent = true })
+vim.keymap.set("n", "<leader>bj", "<cmd>:rightbelow split<cr>", { desc = "split buffer below", silent = true })
 vim.keymap.set("n", "<leader>q", "<cmd>:q<cr>", { desc = "quit buffer", silent = true })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "write buffer", silent = true })
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
