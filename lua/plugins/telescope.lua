@@ -13,6 +13,26 @@ return {
 	},
 	config = function()
 		local telescope = require("telescope")
+		telescope.setup({
+			defaults = {
+				qflist_previewer = function(opts)
+					return require("telescope.previewers").new_buffer_previewer({
+						title = "Diagnostics",
+						dyn_title = function(_, entry)
+							return entry.title
+						end,
+
+						get_buffer_by_name = function(_, entry)
+							return "diagnostics_" .. tostring(entry.nr)
+						end,
+
+						define_preview = function(self, entry)
+							vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, { entry.text })
+						end,
+					})
+				end,
+			},
+		})
 		-- load the extension
 		telescope.load_extension("live_grep_args")
 	end,
