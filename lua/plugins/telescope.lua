@@ -14,9 +14,9 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		telescope.setup({
-			defaults = {
-				qflist_previewer = function(opts)
-					return require("telescope.previewers").new_buffer_previewer({
+			pickers = {
+				diagnostics = {
+					previewer = require("telescope.previewers").new_buffer_previewer({
 						title = "Diagnostics",
 						dyn_title = function(_, entry)
 							return entry.title
@@ -29,8 +29,8 @@ return {
 						define_preview = function(self, entry)
 							vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, { entry.text })
 						end,
-					})
-				end,
+					}),
+				},
 			},
 		})
 		-- load the extension
