@@ -1,7 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
-		local lspconfig = require("lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		local on_attach = function(_, bufnr)
@@ -22,7 +21,7 @@ return {
 		local servers = { "eslint", "lua_ls", "terraformls", "ts_ls" }
 
 		for _, server in ipairs(servers) do
-			lspconfig[server].setup({
+			vim.lsp.config(server, {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
