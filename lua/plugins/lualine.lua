@@ -41,7 +41,38 @@ return {
 					color = { fg = colors.green },
 				},
 			},
-			lualine_x = { "fileformat", "filetype" },
+			lualine_x = {
+				{
+					function()
+						-- Get private IP
+						local handle =
+							io.popen("ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null")
+						local private_ip = handle:read("*a")
+						handle:close()
+						private_ip = private_ip:gsub("%s+", "")
+
+						-- Get public IP
+						handle = io.popen("curl -s --max-time 2 ifconfig.me 2>/dev/null")
+						local public_ip = handle:read("*a")
+						handle:close()
+						public_ip = public_ip:gsub("%s+", "")
+
+						-- Format output
+						if private_ip ~= "" and public_ip ~= "" then
+							return " " .. private_ip .. "/" .. public_ip
+						elseif private_ip ~= "" then
+							return " " .. private_ip
+						elseif public_ip ~= "" then
+							return " " .. public_ip
+						else
+							return ""
+						end
+					end,
+					color = { fg = colors.blue },
+				},
+				"fileformat",
+				"filetype",
+			},
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},
@@ -60,7 +91,38 @@ return {
 					color = { fg = colors.green },
 				},
 			},
-			lualine_x = { "fileformat", "filetype" },
+			lualine_x = {
+				{
+					function()
+						-- Get private IP
+						local handle =
+							io.popen("ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null")
+						local private_ip = handle:read("*a")
+						handle:close()
+						private_ip = private_ip:gsub("%s+", "")
+
+						-- Get public IP
+						handle = io.popen("curl -s --max-time 2 ifconfig.me 2>/dev/null")
+						local public_ip = handle:read("*a")
+						handle:close()
+						public_ip = public_ip:gsub("%s+", "")
+
+						-- Format output
+						if private_ip ~= "" and public_ip ~= "" then
+							return " " .. private_ip .. " / " .. public_ip
+						elseif private_ip ~= "" then
+							return " " .. private_ip
+						elseif public_ip ~= "" then
+							return " " .. public_ip
+						else
+							return ""
+						end
+					end,
+					color = { fg = colors.blue },
+				},
+				"fileformat",
+				"filetype",
+			},
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},
