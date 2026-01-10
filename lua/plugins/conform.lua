@@ -12,6 +12,7 @@ return {
 				json = { "prettierd" },
 				lua = { "stylua" },
 				markdown = { "prettierd" },
+				python = { "pyink" },
 				terraform = { "terraform_fmt" },
 				typescript = { "prettierd" },
 				typescriptreact = { "prettierd" },
