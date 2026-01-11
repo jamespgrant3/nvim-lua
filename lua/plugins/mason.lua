@@ -9,7 +9,7 @@ return {
 		local masonLspConfig = require("mason-lspconfig")
 
 		masonLspConfig.setup({
-			ensure_installed = { "eslint", "ts_ls" },
+			ensure_installed = { "ts_ls" },
 			automatic_installation = true,
 		})
 	end,
