@@ -1,3 +1,12 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<c-h>', "<cmd><C-U>TmuxNavigateLeft<cr>", opts)
+map('n', '<c-j>', "<cmd><C-U>TmuxNavigateDown<cr>", opts)
+map('n', '<c-k>', "<cmd><C-U>TmuxNavigateUp<cr>", opts)
+map('n', '<c-l>', "<cmd><C-U>TmuxNavigateRight<cr>", opts)
+map('n', '<c-\\>', "<cmd><C-U>TmuxNavigatePrevious<cr>", opts)
+
 return {
 	"christoomey/vim-tmux-navigator",
 	cmd = {
@@ -7,12 +16,5 @@ return {
 		"TmuxNavigateRight",
 		"TmuxNavigatePrevious",
 		"TmuxNavigatorProcessList",
-	},
-	keys = {
-		{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-		{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-		{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-		{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-		{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-	},
+	}
 }

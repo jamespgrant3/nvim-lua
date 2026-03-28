@@ -1,10 +1,12 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<leader>dh', "<cmd>:DiffviewFileHistory %<cr>", opts)
+map('n', '<leader>do', "<cmd>:DiffviewOpen<cr>", opts)
+map('n', '<leader>dc', "<cmd>:DiffviewClose<cr>", opts)
+
 return {
 	"sindrets/diffview.nvim",
 	lazy = false,
 	opts = {},
-	keys = {
-		{ "<leader>dh", "<cmd>:DiffviewFileHistory %<cr>", desc = "diff file history" },
-		{ "<leader>do", "<cmd>:DiffviewOpen<cr>", desc = "diff open" },
-		{ "<leader>dc", "<cmd>:DiffviewClose<cr>", desc = "diff close" },
-	},
 }

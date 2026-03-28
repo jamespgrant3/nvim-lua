@@ -1,3 +1,8 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<leader>o', "<cmd>Oil<cr>", opts)
+
 return {
   'stevearc/oil.nvim',
   opts = {},
@@ -6,14 +11,6 @@ return {
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
-  keys = {
-		{
-			"<leader>o",
-			mode = { "n", "v" },
-			"<cmd>Oil<cr>",
-			desc = "Open oil",
-		}
-  },
 	config = function()
     require("oil").setup({
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)

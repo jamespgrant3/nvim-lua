@@ -1,3 +1,8 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<leader>z', "<cmd>lua require('zen-mode').toggle()<cr>", opts)
+
 return {
 	"folke/zen-mode.nvim",
 	opts = {
@@ -65,8 +70,5 @@ return {
 		-- callback where you can add custom code when the Zen window closes
 		--on_close = function()
 		--end,
-	},
-	keys = {
-		{ "<leader>z", "<cmd>lua require('zen-mode').toggle()<cr>", desc = "open zenmode" },
 	},
 }

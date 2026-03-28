@@ -1,29 +1,39 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '-', '<cmd>BufferPrevious<cr>', opts)
+map('n', '=', '<cmd>BufferNext<cr>', opts)
+
+map('n', '<leader>1', '<cmd>BufferGoto 1<cr>', opts)
+map('n', '<leader>2', '<cmd>BufferGoto 2<cr>', opts)
+map('n', '<leader>3', '<cmd>BufferGoto 3<cr>', opts)
+map('n', '<leader>4', '<cmd>BufferGoto 4<cr>', opts)
+map('n', '<leader>5', '<cmd>BufferGoto 5<cr>', opts)
+map('n', '<leader>6', '<cmd>BufferGoto 6<cr>', opts)
+map('n', '<leader>7', '<cmd>BufferGoto 7<cr>', opts)
+map('n', '<leader>8', '<cmd>BufferGoto 8<cr>', opts)
+map('n', '<leader>9', '<cmd>BufferGoto 9<cr>', opts)
+map('n', '<leader>0', '<cmd>BufferLast<cr>', opts)
+
+map('n', '_', '<cmd>BufferMovePrevious<cr>', opts)
+map('n', '+', '<cmd>BufferMoveNext<cr>', opts)
+
+map('n', '-', '<cmd>BufferPrevious<cr>', opts)
+map('n', '=', '<cmd>BufferNext<cr>', opts)
+
+map('n', '<leader>x', '<cmd>BufferClose<cr>', opts)
+map('n', '<leader>bp', '<cmd>BufferPin<cr>', opts)
+
+map('n', '<leader>!', '<cmd>BufferGotoPinned 1<cr>', opts)
+map('n', '<leader>@', '<cmd>BufferGotoPinned 2<cr>', opts)
+map('n', '<leader>#', '<cmd>BufferGotoPinned 3<cr>', opts)
+
 return {
   "romgrk/barbar.nvim",
   lazy = false,
-  keys = {
-		{
-			"<leader>bc",
-			mode = { "n", "v" },
-			"<cmd>BufferClose<cr>",
-			desc = "close buffer",
-		},
-		{
-			"<leader>bp",
-			mode = { "n", "v" },
-			"<cmd>BufferPin<cr>",
-			desc = "pin buffer",
-		},
-		{
-			"<leader>bb",
-			mode = { "n", "v" },
-			"<cmd>BufferGotoPinned<cr>",
-			desc = "goto pinned buffer",
-		},
-  },
   opts = {
     -- Enable/disable animations
-    animation = true,
+    animation = false,
 
     -- Automatically hide the tabline when there are this many buffers left.
     -- Set to any value >=0 to enable.

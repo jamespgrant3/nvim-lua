@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<cr>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<cr>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "string replace" })
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { desc = "make file executable", silent = true })
+vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<cr>", { desc = "make file executable", silent = true })
 
 -- new window
 vim.keymap.set("n", "<leader>hw", "<C-w><C-s>", { desc = "split window horizontal", silent = true })
@@ -46,8 +46,6 @@ vim.keymap.set("n", "<leader>vw", "<C-w><C-v>", { desc = "split window vertical"
 vim.keymap.set("n", "<C-f>", "<C-w><C-o>")
 
 -- tab navigation
-vim.keymap.set("n", "-", "<cmd>:BufferPrevious<cr>", { desc = "move to the previous tab", silent = true })
-vim.keymap.set("n", "=", "<cmd>:BufferNext<cr>", { desc = "move to the next tab", silent = true })
 vim.keymap.set("n", "<leader>ta", "<cmd>:tabnew<cr>", { desc = "new tab after current", silent = true })
 vim.keymap.set("n", "<leader>tb", "<cmd>:-tabnew<cr>", { desc = "new tab before current", silent = true })
 vim.keymap.set("n", "<leader>t0", "<cmd>:0tabnew<cr>", { desc = "new tab before the first", silent = true })
