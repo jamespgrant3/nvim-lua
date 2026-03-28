@@ -46,8 +46,8 @@ vim.keymap.set("n", "<leader>vw", "<C-w><C-v>", { desc = "split window vertical"
 vim.keymap.set("n", "<C-f>", "<C-w><C-o>")
 
 -- tab navigation
-vim.keymap.set("n", "-", "<cmd>:tabprev<cr>", { desc = "move to the previous tab", silent = true })
-vim.keymap.set("n", "=", "<cmd>:tabnext<cr>", { desc = "move to the next tab", silent = true })
+vim.keymap.set("n", "-", "<cmd>:BufferPrevious<cr>", { desc = "move to the previous tab", silent = true })
+vim.keymap.set("n", "=", "<cmd>:BufferNext<cr>", { desc = "move to the next tab", silent = true })
 vim.keymap.set("n", "<leader>ta", "<cmd>:tabnew<cr>", { desc = "new tab after current", silent = true })
 vim.keymap.set("n", "<leader>tb", "<cmd>:-tabnew<cr>", { desc = "new tab before current", silent = true })
 vim.keymap.set("n", "<leader>t0", "<cmd>:0tabnew<cr>", { desc = "new tab before the first", silent = true })
