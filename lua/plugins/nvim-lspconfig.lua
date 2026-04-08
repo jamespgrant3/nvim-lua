@@ -35,7 +35,5 @@ return {
 			opts.border = opts.border or border
 			return orig_util_open_floating_preview(contents, syntax, opts, ...)
 		end
-
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
 	end,
 }
