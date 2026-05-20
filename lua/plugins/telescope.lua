@@ -1,16 +1,16 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-map('n', '<leader>fa', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", opts)
-map('n', '<leader>fd', "<cmd>lua require('telescope.builtin').diagnostics()<cr>", opts)
-map('n', '<leader>gr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-map('n', '<leader>fc', "<cmd>lua require('telescope.builtin').git_files()<cr>", opts)
-map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-map('n', '<leader>fs', "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
-map('n', '<leader>gs', "<cmd>lua require('telescope.builtin').git_status()<cr>", opts)
+map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+map("n", "<leader>fa", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", opts)
+map("n", "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<cr>", opts)
+map("n", "<leader>gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_files()<cr>", opts)
+map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+map("n", "<leader>gs", "<cmd>lua require('telescope.builtin').git_status()<cr>", opts)
 
 return {
 	"nvim-telescope/telescope.nvim",

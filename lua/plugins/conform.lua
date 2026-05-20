@@ -14,9 +14,15 @@ return {
 				markdown = { "prettierd" },
 				python = { "pyink" },
 				terraform = { "terraform_fmt" },
+				["terraform-vars"] = { "terraform_fmt" },
 				typescript = { "prettierd" },
 				typescriptreact = { "prettierd" },
 				yaml = { "prettierd" },
+			},
+			formatters = {
+				xmlformatter = {
+					prepend_args = { "--blanks" },
+				},
 			},
 			format_on_save = {
 				timeout_ms = 500,

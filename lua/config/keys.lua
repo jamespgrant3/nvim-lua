@@ -66,6 +66,12 @@ vim.keymap.set("n", "<leader>bl", "<cmd>:rightbelow vsplit<cr>", { desc = "split
 vim.keymap.set("n", "<leader>bk", "<cmd>:leftabove split<cr>", { desc = "split buffer above", silent = true })
 vim.keymap.set("n", "<leader>bj", "<cmd>:rightbelow split<cr>", { desc = "split buffer below", silent = true })
 vim.keymap.set("n", "<leader>q", "<cmd>:q<cr>", { desc = "quit buffer", silent = true })
-vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "write buffer", silent = true })
+vim.keymap.set("n", "<leader>w", function()
+	if vim.bo.filetype == "oil" then return end
+	local ok, err = pcall(vim.cmd, "w")
+	if not ok and err and err:find("E13") then
+		vim.cmd("w!")
+	end
+end, { desc = "write buffer", silent = true })
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "next buffer", silent = true })
