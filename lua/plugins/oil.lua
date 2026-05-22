@@ -73,14 +73,14 @@ return {
 			-- See :help oil-actions for a list of all available actions
 			keymaps = {
 				["g?"] = { "actions.show_help", mode = "n" },
-				["l"] = "actions.select",
+				["<CR>"] = "actions.select",
 				["<C-v>"] = { "actions.select", opts = { vertical = true } },
 				["<C-h>"] = { "actions.select", opts = { horizontal = true } },
 				["<C-t>"] = { "actions.select", opts = { tab = true } },
 				["<C-p>"] = "actions.preview",
 				["<C-c>"] = { "actions.close", mode = "n" },
 				["<C-l>"] = "actions.refresh",
-				["h"] = { "actions.parent", mode = "n" },
+				["-"] = { "actions.parent", mode = "n" },
 				["_"] = { "actions.open_cwd", mode = "n" },
 				["`"] = { "actions.cd", mode = "n" },
 				["g~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
