@@ -22,6 +22,9 @@ vim.pack.add({
 local telescope = require("telescope")
 telescope.setup({
 	pickers = {
+		find_files = {
+			hidden = true,
+		},
 		diagnostics = {
 			previewer = require("telescope.previewers").new_buffer_previewer({
 				title = "Diagnostics",
