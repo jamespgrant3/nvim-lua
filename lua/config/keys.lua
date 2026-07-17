@@ -57,7 +57,19 @@ vim.keymap.set("n", "<leader>tl", "<cmd>:tabm -1<cr>", { desc = "move tab left 1
 vim.keymap.set("n", "<leader>ln", "<cmd>:set rnu!<cr>", { desc = "toggle relative line numbering", silent = true })
 
 -- updates
-vim.keymap.set("n", "<leader>lu", "<cmd>:Lazy<cr>", { desc = "lazy update" })
+vim.keymap.set("n", "<leader>lu", function()
+	vim.pack.update()
+end, { desc = "plugin update" })
+vim.keymap.set("n", "<leader>lx", function()
+	local names = vim.tbl_map(function(p)
+		return p.spec.name
+	end, vim.pack.get())
+	vim.ui.select(names, { prompt = "Delete plugin:" }, function(choice)
+		if choice then
+			vim.pack.del({ choice })
+		end
+	end)
+end, { desc = "plugin delete" })
 vim.keymap.set("n", "<leader>mu", "<cmd>:Mason<cr>", { desc = "mason update" })
 
 -- buffer
@@ -67,7 +79,9 @@ vim.keymap.set("n", "<leader>bk", "<cmd>:leftabove split<cr>", { desc = "split b
 vim.keymap.set("n", "<leader>bj", "<cmd>:rightbelow split<cr>", { desc = "split buffer below", silent = true })
 vim.keymap.set("n", "<leader>q", "<cmd>:q<cr>", { desc = "quit buffer", silent = true })
 vim.keymap.set("n", "<leader>w", function()
-	if vim.bo.filetype == "oil" then return end
+	if vim.bo.filetype == "oil" then
+		return
+	end
 	local ok, err = pcall(vim.cmd, "w")
 	if not ok and err and err:find("E13") then
 		vim.cmd("w!")

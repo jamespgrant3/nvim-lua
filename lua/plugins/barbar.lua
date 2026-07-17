@@ -28,10 +28,12 @@ map("n", "<leader>!", "<cmd>BufferGotoPinned 1<cr>", opts)
 map("n", "<leader>@", "<cmd>BufferGotoPinned 2<cr>", opts)
 map("n", "<leader>#", "<cmd>BufferGotoPinned 3<cr>", opts)
 
-return {
-	"romgrk/barbar.nvim",
-	lazy = false,
-	opts = {
+vim.pack.add({
+	"https://github.com/nvim-tree/nvim-web-devicons",
+	"https://github.com/romgrk/barbar.nvim",
+})
+
+require("barbar").setup({
 		-- Enable/disable animations
 		animation = false,
 
@@ -168,5 +170,4 @@ return {
 			-- tells barbar to ignore case differences while sorting buffers
 			ignore_case = true,
 		},
-	},
-}
+})

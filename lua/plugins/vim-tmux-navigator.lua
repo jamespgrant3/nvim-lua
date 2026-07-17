@@ -7,14 +7,4 @@ map('n', '<c-k>', "<cmd>TmuxNavigateUp<cr>", opts)
 map('n', '<c-l>', "<cmd>TmuxNavigateRight<cr>", opts)
 map('n', '<c-\\>', "<cmd>TmuxNavigatePrevious<cr>", opts)
 
-return {
-	"christoomey/vim-tmux-navigator",
-	cmd = {
-		"TmuxNavigateLeft",
-		"TmuxNavigateDown",
-		"TmuxNavigateUp",
-		"TmuxNavigateRight",
-		"TmuxNavigatePrevious",
-		"TmuxNavigatorProcessList",
-	}
-}
+vim.pack.add({ "https://github.com/christoomey/vim-tmux-navigator" })

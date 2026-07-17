@@ -1,34 +1,31 @@
-return {
-	"nvim-treesitter/nvim-treesitter",
-	tag = "v0.9.3",
-	build = ":TSUpdate",
-	config = function()
-		require("nvim-treesitter").setup({
-			ensure_installed = {
-				"bash",
-				"helm",
-				"html",
-				"http",
-				"javascript",
-				"json",
-				"lua",
-				"markdown",
-				"python",
-				"sql",
-				"terraform",
-				"tmux",
-				"typescript",
-				"vim",
-				"vimdoc",
-				"yaml",
-			},
-			auto_install = true,
-			sync_install = false,
-			highlight = {
-				additional_vim_regex_highlighting = false,
-				enable = true,
-			},
-			indent = { enable = true },
-		})
-	end,
-}
+vim.pack.add({
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+})
+
+require("nvim-treesitter").setup({
+	ensure_installed = {
+		"bash",
+		"helm",
+		"html",
+		"http",
+		"javascript",
+		"json",
+		"lua",
+		"markdown",
+		"python",
+		"sql",
+		"terraform",
+		"tmux",
+		"typescript",
+		"vim",
+		"vimdoc",
+		"yaml",
+	},
+	auto_install = true,
+	sync_install = false,
+	highlight = {
+		additional_vim_regex_highlighting = false,
+		enable = true,
+	},
+	indent = { enable = true },
+})

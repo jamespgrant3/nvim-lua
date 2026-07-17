@@ -3,16 +3,14 @@ local opts = { noremap = true, silent = true }
 
 map("n", "<leader>o", "<cmd>Oil<cr>", opts)
 
-return {
-	"stevearc/oil.nvim",
-	opts = {},
-	-- Optional dependencies
-	dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-	-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-	lazy = false,
-	config = function()
-		require("oil").setup({
+vim.pack.add({
+	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/nvim-mini/mini.icons",
+})
+
+require("mini.icons").setup({})
+
+require("oil").setup({
 			-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
 			-- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
 			default_file_explorer = true,
@@ -215,6 +213,4 @@ return {
 			keymaps_help = {
 				border = nil,
 			},
-		})
-	end,
-}
+})

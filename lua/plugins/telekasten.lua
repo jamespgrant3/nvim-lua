@@ -16,17 +16,18 @@ map("n", "<leader>nr", "<cmd>Telekasten rename_note<cr>", opts)
 map("n", "<leader>nd", "<cmd>Telekasten new_note<cr>", opts)
 map("n", "<leader>nw", "<cmd>Telekasten goto_thisweek<cr>", opts)
 
-return {
-	"renerocksai/telekasten.nvim",
-	dependencies = { "nvim-telescope/telescope.nvim" },
-	lazy = false,
-	opts = {
-		home = home,
-		dailies = home .. "/dailies",
-		weeklies = home .. "/weeklies",
-		templates = templates,
-		template_new_daily = templates .. "/new_daily.md",
-		template_new_note = templates .. "/new.md",
-		template_new_weekly = templates .. "/new_weekly.md",
-	},
-}
+vim.pack.add({
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/renerocksai/telekasten.nvim",
+	"https://github.com/nvim-telescope/telescope.nvim",
+})
+
+require("telekasten").setup({
+	home = home,
+	dailies = home .. "/dailies",
+	weeklies = home .. "/weeklies",
+	templates = templates,
+	template_new_daily = templates .. "/new_daily.md",
+	template_new_note = templates .. "/new.md",
+	template_new_weekly = templates .. "/new_weekly.md",
+})

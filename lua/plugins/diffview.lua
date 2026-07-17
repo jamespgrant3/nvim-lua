@@ -11,8 +11,6 @@ vim.keymap.set("n", "<leader>ds", function()
 	end
 end, opts)
 
-return {
-	"sindrets/diffview.nvim",
-	lazy = false,
-	opts = {},
-}
+vim.pack.add({ "https://github.com/sindrets/diffview.nvim" })
+
+require("diffview").setup({})

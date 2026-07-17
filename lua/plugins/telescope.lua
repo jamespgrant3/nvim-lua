@@ -12,57 +12,46 @@ map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", 
 map("n", "<leader>fs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
 map("n", "<leader>gs", "<cmd>lua require('telescope.builtin').git_status()<cr>", opts)
 
-return {
-	"nvim-telescope/telescope.nvim",
-	dependencies = {
-		{ "nvim-lua/plenary.nvim" },
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-		},
-		{
-			"nvim-telescope/telescope-live-grep-args.nvim",
-			version = "^1.0.0",
+vim.pack.add({
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+	{ src = "https://github.com/nvim-telescope/telescope-live-grep-args.nvim", version = vim.version.range("1.0.0") },
+	"https://github.com/nvim-telescope/telescope.nvim",
+})
+
+local telescope = require("telescope")
+telescope.setup({
+	pickers = {
+		diagnostics = {
+			previewer = require("telescope.previewers").new_buffer_previewer({
+				title = "Diagnostics",
+				dyn_title = function(_, entry)
+					return entry.title
+				end,
+
+				get_buffer_by_name = function(_, entry)
+					return "diagnostics_" .. tostring(entry.nr)
+				end,
+
+				define_preview = function(self, entry)
+					vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, { entry.text })
+				end,
+			}),
 		},
 	},
-	config = function()
-		local telescope = require("telescope")
-		telescope.setup({
-			pickers = {
-				diagnostics = {
-					previewer = require("telescope.previewers").new_buffer_previewer({
-						title = "Diagnostics",
-						dyn_title = function(_, entry)
-							return entry.title
-						end,
-
-						get_buffer_by_name = function(_, entry)
-							return "diagnostics_" .. tostring(entry.nr)
-						end,
-
-						define_preview = function(self, entry)
-							vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, { entry.text })
-						end,
-					}),
-				},
-			},
-		})
-		-- load the extension
-		telescope.load_extension("live_grep_args")
-	end,
-	opts = {
-		defaults = {
-			layout_strategy = "vertical",
-			vimgrep_arguments = {
-				"rg",
-				"--color=never",
-				"--no-heading",
-				"--with-filename",
-				"--line-number",
-				"--column",
-				"--smart-case",
-				"--hidden",
-			},
+	defaults = {
+		layout_strategy = "vertical",
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			"--hidden",
 		},
 	},
-}
+})
+-- load the extension
+telescope.load_extension("live_grep_args")

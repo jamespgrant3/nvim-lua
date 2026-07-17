@@ -3,9 +3,9 @@ local opts = { noremap = true, silent = true }
 
 map('n', '<leader>z', "<cmd>lua require('zen-mode').toggle()<cr>", opts)
 
-return {
-	"folke/zen-mode.nvim",
-	opts = {
+vim.pack.add({ "https://github.com/folke/zen-mode.nvim" })
+
+require("zen-mode").setup({
 		window = {
 			backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
 			-- height and width can be:
@@ -70,5 +70,4 @@ return {
 		-- callback where you can add custom code when the Zen window closes
 		--on_close = function()
 		--end,
-	},
-}
+})
