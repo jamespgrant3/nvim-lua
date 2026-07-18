@@ -1,5 +1,5 @@
-local home = vim.fn.expand("~/repos/state/notes")
-local templates = vim.fn.expand("~/repos/nvim/master/lua/plugins/telekasten/templates")
+local home = vim.fn.expand("$REPOS_DIR/state/notes")
+local templates = vim.fn.expand("$REPOS_DIR/nvim/master/lua/plugins/telekasten/templates")
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
