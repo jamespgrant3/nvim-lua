@@ -4,17 +4,15 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 map("n", "<leader>nf", "<cmd>Telekasten find_notes<cr>", opts)
-map("n", "<leader>ng", "<cmd>Telekasten search_notes<cr>", opts)
-map("n", "<leader>nl", "<cmd>Telekasten follow_link<cr>", opts)
-map("n", "<leader>nn", "<cmd>Telekasten goto_today<cr>", opts)
+map("n", "<leader>ns", "<cmd>Telekasten search_notes<cr>", opts)
 map("n", "<leader>nt", "<cmd>Telekasten new_templated_note<cr>", opts)
--- map('n', '<leader>nc', "<cmd>Telekasten show_calendar<cr>", opts)
 map("n", "<leader>nb", "<cmd>Telekasten show_backlinks<cr>", opts)
-map("n", "<leader>nI", "<cmd>Telekasten insert_img_link<cr>", opts)
 map("n", "<leader>np", "<cmd>Telekasten panel<cr>", opts)
 map("n", "<leader>nr", "<cmd>Telekasten rename_note<cr>", opts)
-map("n", "<leader>nd", "<cmd>Telekasten new_note<cr>", opts)
+map("n", "<leader>nn", "<cmd>Telekasten new_note<cr>", opts)
 map("n", "<leader>nw", "<cmd>Telekasten goto_thisweek<cr>", opts)
+map("n", "<leader>nl", "<cmd>Telekasten follow_link<cr>", opts)
+map("n", "<leader>na", "<cmd>Telekasten insert_link<cr>", opts)
 
 vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
