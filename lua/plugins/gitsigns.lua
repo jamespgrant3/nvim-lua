@@ -1,9 +1,10 @@
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-map('n', '<leader>gb', "<cmd>:Gitsigns blame<cr>", opts)
-map('n', ']g', "<cmd>:Gitsigns next_hunk<cr>", opts)
-map('n', '[g', "<cmd>:Gitsigns prev_hunk<cr>", opts)
+vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<cr>", { desc = "git blame", silent = true })
+vim.keymap.set("n", "]g", function()
+	require("gitsigns").nav_hunk("next")
+end, { desc = "next git hunk", silent = true })
+vim.keymap.set("n", "[g", function()
+	require("gitsigns").nav_hunk("prev")
+end, { desc = "previous git hunk", silent = true })
 
 vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
 

@@ -1,5 +1,5 @@
 -- view all keybindings with :map
-vim.g.mapleader = " "
+-- `mapleader` is set in config/pack.lua, which runs before any plugin loads.
 
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "move line down" })
 vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "move line up" })
@@ -37,10 +37,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<cr>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "string replace" })
 vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<cr>", { desc = "make file executable", silent = true })
-
--- new window
-vim.keymap.set("n", "<leader>hw", "<C-w><C-s>", { desc = "split window horizontal", silent = true })
-vim.keymap.set("n", "<leader>vw", "<C-w><C-v>", { desc = "split window vertical", silent = true })
 
 -- move full screen, good for :help
 vim.keymap.set("n", "<C-f>", "<C-w><C-o>")
@@ -89,3 +85,6 @@ vim.keymap.set("n", "<leader>w", function()
 end, { desc = "write buffer", silent = true })
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "next buffer", silent = true })
+vim.keymap.set("n", "-", "<cmd>bprevious<cr>", { desc = "previous buffer", silent = true })
+vim.keymap.set("n", "=", "<cmd>bnext<cr>", { desc = "next buffer", silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>bdelete<cr>", { desc = "close buffer", silent = true })

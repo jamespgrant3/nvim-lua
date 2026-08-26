@@ -1,8 +1,9 @@
 -- fat cursor in insert mode
 vim.opt.guicursor = ""
 
--- share clipboard across vim and machine
-vim.opt.clipboard = "unnamed"
+-- The system clipboard is NOT synced with the unnamed register: plain y/d/x
+-- stay inside vim, and <leader>y / <leader>Y (keys.lua) explicitly copy to
+-- the clipboard. Set `clipboard=unnamed` to sync everything instead.
 
 -- set line number, and have them relative
 vim.opt.nu = true
@@ -27,8 +28,18 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
+-- border for all floating windows (lsp hover, completion docs, telescope, ...)
+vim.opt.winborder = "rounded"
+
 vim.opt.scrolloff = 2
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
+
+-- briefly highlight yanked text (replaces yanky.nvim)
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.hl.on_yank({ timeout = 250 })
+	end,
+})
 
 --vim.opt.updatetime = 50

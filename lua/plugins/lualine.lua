@@ -1,134 +1,94 @@
-local colors = require("../config/colors")
+local colors = require("config.colors")
 
--- Cached IP addresses with timer to prevent slowdown
+-- Cached IP addresses. The statusline component never blocks: it returns
+-- whatever is cached and refreshes the public IP in the background.
 local ip_cache = {
 	value = "",
 	last_update = 0,
 	update_interval = 300, -- 5 minutes in seconds
+	updating = false,
 }
 
+-- Private IP comes straight from libuv, so no subprocess is needed.
+local function private_ip()
+	for _, addrs in pairs(vim.uv.interface_addresses()) do
+		for _, a in ipairs(addrs) do
+			if a.family == "inet" and not a.internal then
+				return a.ip
+			end
+		end
+	end
+	return ""
+end
+
+local function format_ips(private, public)
+	if private ~= "" and public ~= "" then
+		return " " .. private .. "/" .. public
+	elseif private ~= "" then
+		return " " .. private
+	elseif public ~= "" then
+		return " " .. public
+	end
+	return ""
+end
+
+local function refresh_ips()
+	ip_cache.updating = true
+	vim.system({ "curl", "-s", "--max-time", "2", "ifconfig.me" }, { text = true }, function(res)
+		local public = res.code == 0 and vim.trim(res.stdout or "") or ""
+		vim.schedule(function()
+			ip_cache.value = format_ips(private_ip(), public)
+			ip_cache.last_update = os.time()
+			ip_cache.updating = false
+			vim.cmd("redrawstatus")
+		end)
+	end)
+end
+
 local function get_ip_addresses()
-	local current_time = os.time()
-
-	-- Return cached value if still fresh
-	if current_time - ip_cache.last_update < ip_cache.update_interval then
-		return ip_cache.value
+	if not ip_cache.updating and os.time() - ip_cache.last_update >= ip_cache.update_interval then
+		refresh_ips()
 	end
-
-	-- Update cache
-	local private_ip = ""
-	local handle =
-		io.popen("ifconfig | grep 'inet ' | grep -v '127.0.0.1' | grep -v 'utun' | awk '{print $2}' | head -1")
-	if handle then
-		private_ip = handle:read("*a")
-		handle:close()
-		private_ip = private_ip:gsub("%s+", "")
-	end
-
-	-- Get public IP (cached, only updates every 5 minutes)
-	local public_ip = ""
-	handle = io.popen("curl -s --max-time 2 ifconfig.me 2>/dev/null")
-	if handle then
-		public_ip = handle:read("*a")
-		handle:close()
-		public_ip = public_ip:gsub("%s+", "")
-	end
-
-	-- Format output
-	if private_ip ~= "" and public_ip ~= "" then
-		ip_cache.value = " " .. private_ip .. "/" .. public_ip
-	elseif private_ip ~= "" then
-		ip_cache.value = " " .. private_ip
-	elseif public_ip ~= "" then
-		ip_cache.value = " " .. public_ip
-	else
-		ip_cache.value = ""
-	end
-
-	ip_cache.last_update = current_time
 	return ip_cache.value
 end
 
 vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
 })
 
+-- Active and inactive windows use identical sections. This returns a fresh
+-- table each call because lualine mutates the spec it is handed during setup.
+local function build_sections()
+	return {
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = {
+			{
+				"filename",
+				path = 1,
+			},
+		},
+		lualine_x = {
+			{
+				get_ip_addresses,
+				color = { fg = colors.blue },
+			},
+			"fileformat",
+			"filetype",
+		},
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
+	}
+end
+
+-- Only non-default options are listed here. See `:help lualine-Default-configuration`.
 require("lualine").setup({
 	options = {
-		icons_enabled = true,
 		theme = "catppuccin-mocha",
-		--component_separators = { left = "", right = ""},
+		-- no powerline separators
 		component_separators = { left = "", right = "" },
-		--section_separators = { left = "", right = ""},
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
-		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		globalstatus = false,
-		refresh = {
-			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
-		},
 	},
-	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = {
-			{
-				"filename",
-				path = 1,
-			},
-			{
-				function()
-					return "🤖" .. vim.fn["codeium#GetStatusString"]()
-				end,
-				color = { fg = colors.green },
-			},
-		},
-		lualine_x = {
-			{
-				get_ip_addresses,
-				color = { fg = colors.blue },
-			},
-			"fileformat",
-			"filetype",
-		},
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
-	},
-	inactive_sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = {
-			{
-				"filename",
-				path = 1,
-			},
-			{
-				function()
-					return "🤖" .. vim.fn["codeium#GetStatusString"]()
-				end,
-				color = { fg = colors.green },
-			},
-		},
-		lualine_x = {
-			{
-				get_ip_addresses,
-				color = { fg = colors.blue },
-			},
-			"fileformat",
-			"filetype",
-		},
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
-	},
-	tabline = {},
-	winbar = {},
-	inactive_winbar = {},
-	extensions = {},
+	sections = build_sections(),
+	inactive_sections = build_sections(),
 })

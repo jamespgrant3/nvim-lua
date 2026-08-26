@@ -1,5 +1,5 @@
 local home = vim.fn.expand("$REPOS_DIR/state/notes")
-local templates = vim.fn.expand("$REPOS_DIR/nvim/master/lua/plugins/telekasten/templates")
+local templates = vim.fn.stdpath("config") .. "/lua/plugins/telekasten/templates"
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
@@ -14,6 +14,8 @@ map("n", "<leader>nw", "<cmd>Telekasten goto_thisweek<cr>", opts)
 map("n", "<leader>nl", "<cmd>Telekasten follow_link<cr>", opts)
 map("n", "<leader>na", "<cmd>Telekasten insert_link<cr>", opts)
 
+-- plenary/telescope are also declared in telescope.lua, but this file loads
+-- first (alphabetically), so they must be on the rtp here already.
 vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/renerocksai/telekasten.nvim",

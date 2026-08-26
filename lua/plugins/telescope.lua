@@ -14,7 +14,6 @@ map("n", "<leader>gs", "<cmd>lua require('telescope.builtin').git_status()<cr>",
 
 vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	{ src = "https://github.com/nvim-telescope/telescope-live-grep-args.nvim", version = vim.version.range("1.0.0") },
 	"https://github.com/nvim-telescope/telescope.nvim",
 })
