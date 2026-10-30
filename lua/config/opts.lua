@@ -1,9 +1,9 @@
 -- fat cursor in insert mode
 vim.opt.guicursor = ""
 
--- The system clipboard is NOT synced with the unnamed register: plain y/d/x
--- stay inside vim, and <leader>y / <leader>Y (keys.lua) explicitly copy to
--- the clipboard. Set `clipboard=unnamed` to sync everything instead.
+-- Sync the unnamed register with the system clipboard: plain y/d/p all go
+-- through pbcopy/pbpaste, so terminal <-> nvim copy/paste just works.
+vim.opt.clipboard = "unnamedplus"
 
 -- set line number, and have them relative
 vim.opt.nu = true

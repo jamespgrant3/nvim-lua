@@ -1,25 +1,25 @@
--- https://catppuccin.com/palette/#flavor-mocha
+-- https://catppuccin.com/palette/#flavor-latte
 local M = {}
 
 -- Define your color palette
 M.colors = {
-	rosewater = "#f5e0dc",
-	flamingo = "#f2cdcd",
-	pink = "#f5c2e7",
-	mauve = "#cba6f7",
-	red = "#f38ba8",
-	maroon = "#eba0ac",
-	peach = "#fab387",
-	yellow = "#f9e2af",
-	green = "#a6e3a1",
-	teal = "#94e2d5",
-	sky = "#89dceb",
-	sapphire = "#74c7ec",
-	blue = "#89b4fa",
-	lavendar = "#b4befe",
-	text = "#cdd6f4",
-	crust = "#11111b",
-	mantle = "#181825",
+	rosewater = "#dc8a78",
+	flamingo = "#dd7878",
+	pink = "#ea76cb",
+	mauve = "#8839ef",
+	red = "#d20f39",
+	maroon = "#e64553",
+	peach = "#fe640b",
+	yellow = "#df8e1d",
+	green = "#40a02b",
+	teal = "#179299",
+	sky = "#04a5e5",
+	sapphire = "#209fb5",
+	blue = "#1e66f5",
+	lavendar = "#7287fd",
+	text = "#4c4f69",
+	crust = "#dce0e8",
+	mantle = "#e6e9ef",
 }
 
 return M.colors

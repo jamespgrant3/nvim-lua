@@ -84,7 +84,7 @@ end
 -- Only non-default options are listed here. See `:help lualine-Default-configuration`.
 require("lualine").setup({
 	options = {
-		theme = "catppuccin-mocha",
+		theme = "auto",
 		-- no powerline separators
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
