@@ -18,6 +18,10 @@ require("oil").setup({
 	keymaps = {
 		["<C-v>"] = { "actions.select", opts = { vertical = true } },
 	},
+	columns = {
+		"icon",
+		"size",
+	},
 	view_options = {
 		-- Show files and directories that start with "."
 		show_hidden = true,
