@@ -23,7 +23,7 @@ end
 
 local function format_ips(private, public)
 	if private ~= "" and public ~= "" then
-		return " " .. private .. "/" .. public
+		return " " .. private .. " => " .. public
 	elseif private ~= "" then
 		return " " .. private
 	elseif public ~= "" then
